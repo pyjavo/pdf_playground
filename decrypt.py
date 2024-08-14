@@ -49,6 +49,6 @@ def pdf_decrypter(path, filename):
 
 if __name__ == '__main__':
     filename = 'mi_archivo.pdf'
-    path = INPUT_DIR+filename
+    path = INPUT_DIR
     pdf_decrypter(path, filename)
 

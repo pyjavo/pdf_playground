@@ -14,7 +14,7 @@ def list_files_in_directory(directory_path):
         # List all files in the given directory
         with os.scandir(directory_path) as entries:
             for entry in entries:
-                if entry.is_file():
+                if entry.is_file() and entry.name != '.gitignore':
                     pdf_decrypter(directory_path+'/', entry.name)
     except FileNotFoundError:
         print(f"The directory {directory_path} does not exist.")
