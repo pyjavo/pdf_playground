@@ -6,7 +6,7 @@ from decouple import config
 out = PdfFileWriter()
 
 # Open encrypted PDF file with the PdfFileReader
-file = PdfFileReader("mi_archivo.pdf")
+file = PdfFileReader("inputs/mi_archivo.pdf")
 
 # Store correct password in a variable password.
 password = config('PASSWORD')
