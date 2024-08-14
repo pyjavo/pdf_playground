@@ -12,7 +12,7 @@ def pdf_splitter(path):
         pdf_writer = PdfFileWriter()
         pdf_writer.addPage(pdf.getPage(page))
 
-        output_filename = '{}_page_{}.pdf'.format(
+        output_filename = 'outputs/{}_page_{}.pdf'.format(
             fname, page+1)
 
         with open(output_filename, 'wb') as out:
