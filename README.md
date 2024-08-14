@@ -9,8 +9,6 @@ Este proyecto corre en Python 3.9.
 
 
 ## To DOs:
-1. User environment variables to set a password in decrypt_pdfs
-2. Make a try/except or a bash file that validades "mi_archivo.pdf" exists before running the script
-3. Make a directory destination for decrypted files
-4. Allow decrypt_pdfs.py to receive the file name as an argument (also add a shebang)
-5. Same as before for the main.py file
+1. Make a try/except or a bash file that validades "mi_archivo.pdf" exists before running the script
+2. Allow decrypt_pdfs.py to receive the file name as an argument (also add a shebang)
+3. Same as before for the main.py file
