@@ -2,13 +2,15 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 from decouple import config
 
 
+INPUT_DIR = 'inputs/'
+OUTPUT_DIR = 'outputs/'
 
-def pdf_decrypter(path):
+def pdf_decrypter(filename):
     # Create a PdfFileWriter object
     out = PdfFileWriter()
 
     # Open encrypted PDF file with the PdfFileReader
-    file = PdfFileReader(path)
+    file = PdfFileReader(INPUT_DIR+filename)
 
     # Store correct password in a variable password.
     password = config('PASSWORD')
@@ -30,7 +32,8 @@ def pdf_decrypter(path):
             out.addPage(page)
 
         # Open a new file "myfile_decrypted.pdf"
-        with open("outputs/mi_archivo_decrypted.pdf", "wb") as f:
+        path_new_file = OUTPUT_DIR + f'{filename}'
+        with open(path_new_file, "wb") as f:
             # Write our decrypted PDF to this file
             out.write(f)
         # Print success message when Done
@@ -42,6 +45,7 @@ def pdf_decrypter(path):
         print("File already decrypted.")
 
 if __name__ == '__main__':
-    path = 'inputs/mi_archivo.pdf'
-    pdf_decrypter(path)
+    #path = 'inputs/mi_archivo.pdf'
+    filename = 'mi_archivo.pdf'
+    pdf_decrypter(filename)
 

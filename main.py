@@ -1,19 +1,23 @@
-# pdf_splitter.py
+#!/usr/bin/env python3
 
 import os
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
-def pdf_splitter(path):
-    fname = os.path.splitext(os.path.basename(path))[0]
 
-    pdf = PdfFileReader(path)
+INPUT_DIR = 'inputs/'
+OUTPUT_DIR = 'outputs/'
+
+
+def pdf_splitter(filename):
+    #filename = os.path.splitext(os.path.basename(path))[0]
+
+    pdf = PdfFileReader(INPUT_DIR+filename)
     for page in range(pdf.getNumPages()):
         pdf_writer = PdfFileWriter()
         pdf_writer.addPage(pdf.getPage(page))
 
-        output_filename = 'outputs/{}_page_{}.pdf'.format(
-            fname, page+1)
+        output_filename = OUTPUT_DIR + f'{filename}_page_{page+1}.pdf'
 
         with open(output_filename, 'wb') as out:
             pdf_writer.write(out)
@@ -21,5 +25,7 @@ def pdf_splitter(path):
         print('Created: {}'.format(output_filename))
 
 if __name__ == '__main__':
-    path = 'inputs/certificado.pdf'
-    pdf_splitter(path)
+    filename = 'certificado.pdf'
+    #path = 'inputs/certificado.pdf'
+    pdf_splitter(filename)
+
