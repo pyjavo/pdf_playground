@@ -5,8 +5,8 @@ from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
 
-INPUT_DIR = 'inputs/'
-OUTPUT_DIR = 'outputs/'
+INPUT_DIR = 'assets/inputs/'
+OUTPUT_DIR = 'assets/outputs/'
 
 
 def pdf_splitter(filename):
@@ -22,7 +22,7 @@ def pdf_splitter(filename):
         with open(output_filename, 'wb') as out:
             pdf_writer.write(out)
 
-        print('Created: {}'.format(output_filename))
+        print('Successfully splitted: {}'.format(output_filename))
 
 if __name__ == '__main__':
     filename = 'certificado.pdf'

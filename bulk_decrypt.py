@@ -3,8 +3,8 @@ import os
 from decrypt import pdf_decrypter
 
 
-INPUT_DIR = 'inputs/'
-OUTPUT_DIR = 'outputs/'
+INPUT_DIR = 'assets/inputs/'
+OUTPUT_DIR = 'assets/outputs/'
 
 
 def list_files_in_directory(directory_path):

@@ -2,8 +2,8 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 from decouple import config
 
 
-INPUT_DIR = 'inputs/'
-OUTPUT_DIR = 'outputs/'
+INPUT_DIR = 'assets/inputs/'
+OUTPUT_DIR = 'assets/outputs/'
 
 
 def pdf_decrypter(path, filename):
