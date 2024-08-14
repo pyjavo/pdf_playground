@@ -21,5 +21,5 @@ def pdf_splitter(path):
         print('Created: {}'.format(output_filename))
 
 if __name__ == '__main__':
-    path = 'certificado.pdf'
+    path = 'inputs/certificado.pdf'
     pdf_splitter(path)
