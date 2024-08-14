@@ -5,12 +5,15 @@ from decouple import config
 INPUT_DIR = 'inputs/'
 OUTPUT_DIR = 'outputs/'
 
-def pdf_decrypter(filename):
+
+def pdf_decrypter(path, filename):
+    '''Remove password of a single file.'''
+
     # Create a PdfFileWriter object
     out = PdfFileWriter()
 
     # Open encrypted PDF file with the PdfFileReader
-    file = PdfFileReader(INPUT_DIR+filename)
+    file = PdfFileReader(path+filename)
 
     # Store correct password in a variable password.
     password = config('PASSWORD')
@@ -32,12 +35,12 @@ def pdf_decrypter(filename):
             out.addPage(page)
 
         # Open a new file "myfile_decrypted.pdf"
-        path_new_file = OUTPUT_DIR + f'{filename}'
+        path_new_file = OUTPUT_DIR + f'decrypt/{filename}'
         with open(path_new_file, "wb") as f:
             # Write our decrypted PDF to this file
             out.write(f)
         # Print success message when Done
-        print("File decrypted Successfully.")
+        print(f"File decrypted Successfully in {path_new_file}.")
 
     else:
         # If file is not encrypted, print the
@@ -45,7 +48,7 @@ def pdf_decrypter(filename):
         print("File already decrypted.")
 
 if __name__ == '__main__':
-    #path = 'inputs/mi_archivo.pdf'
     filename = 'mi_archivo.pdf'
-    pdf_decrypter(filename)
+    path = INPUT_DIR+filename
+    pdf_decrypter(path, filename)
 
