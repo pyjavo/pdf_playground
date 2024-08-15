@@ -1,4 +1,4 @@
-# PDF Jargon 0.1
+# PDF Playground 0.1
 
 Play with PDF files in Python.
 
